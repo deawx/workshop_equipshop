@@ -12,14 +12,18 @@ class Product extends Public_Controller {
 	{
 		// $this->data['product_all'] = $this->product_m->search_where(array('category'=>$category_id))->result_array();
 		$this->data['body'] = $this->load->view('product/index',$this->data,TRUE);
-		$this->load->view('_layouts/boxed',$this->data);
+		$this->load->view('_layouts/fullwidth',$this->data);
 	}
 
-	public function view($product_id)
+	public function view($product_id=FALSE)
 	{
+		if ( ! $product_id)
+		{
+			redirect('product');
+		}
 		// $this->data['product'] = $this->product_m->search_id($product_id)->row_array();
 		$this->data['body'] = $this->load->view('product/view',$this->data,TRUE);
-		$this->load->view('_layouts/boxed',$this->data);
+		$this->load->view('_layouts/fullwidth',$this->data);
 	}
 
 	public function cart()
@@ -33,7 +37,7 @@ class Product extends Public_Controller {
 		{
 		}
 		$this->data['body'] = $this->load->view('product/cart',$this->data,TRUE);
-		$this->load->view('_layouts/boxed',$this->data);
+		$this->load->view('_layouts/fullwidth',$this->data);
 	}
 
 	protected function cart_insert()

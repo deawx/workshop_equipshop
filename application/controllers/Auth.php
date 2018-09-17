@@ -22,12 +22,12 @@ class Auth extends Public_Controller
       redirect();
     }
 
-    $this->form_validation->set_rules('email','อีเมล์','required');
-    $this->form_validation->set_rules('password','รหัสผ่าน','required');
+    $this->form_validation->set_rules('username','username','required');
+    $this->form_validation->set_rules('password','password','required');
     if ($this->form_validation->run() === TRUE)
     {
       $post = $this->input->post();
-      $userdata = $this->user_m->login($post['email'],$post['password']);
+      $userdata = $this->user_m->login($post['username'],$post['password']);
       if ($userdata)
       {
         $this->data['session'] = $userdata;
@@ -36,11 +36,10 @@ class Auth extends Public_Controller
       }
       else
       {
-        echo '<script>alert();</script>';
       }
     }
     $this->data['body'] = $this->load->view('auth/login',$this->data,TRUE);
-    $this->load->view('_layouts/boxed',$this->data);
+    $this->load->view('_layouts/fullwidth',$this->data);
   }
 
   public function login_admin()
@@ -50,12 +49,12 @@ class Auth extends Public_Controller
       redirect();
     }
 
-    $this->form_validation->set_rules('email','อีเมล์','required');
-    $this->form_validation->set_rules('password','รหัสผ่าน','required');
+    $this->form_validation->set_rules('username','username','required');
+    $this->form_validation->set_rules('password','password','required');
     if ($this->form_validation->run() === TRUE)
     {
       $post = $this->input->post();
-      $userdata = $this->user_m->login($post['email'],$post['password']);
+      $userdata = $this->user_m->login($post['username'],$post['password']);
       if ($userdata)
       {
         $this->data['session'] = $userdata;
@@ -64,11 +63,10 @@ class Auth extends Public_Controller
       }
       else
       {
-        echo '<script>alert();</script>';
       }
     }
     $this->data['body'] = $this->load->view('auth/login_admin',$this->data,TRUE);
-    $this->load->view('_layouts/boxed',$this->data);
+    $this->load->view('_layouts/fullwidth',$this->data);
   }
 
   public function register()
@@ -80,10 +78,8 @@ class Auth extends Public_Controller
 
     $this->form_validation->set_rules('firstname','','required');
     $this->form_validation->set_rules('lastname','','required');
-    $this->form_validation->set_rules('nickname','','required');
-    $this->form_validation->set_rules('birthdate','','required');
-    $this->form_validation->set_rules('email','อีเมล์','required');
-    $this->form_validation->set_rules('password','รหัสผ่าน','required');
+    $this->form_validation->set_rules('username','','required');
+    $this->form_validation->set_rules('password','','required');
     if ($this->form_validation->run() === TRUE)
     {
       $post = $this->input->post();
@@ -93,11 +89,10 @@ class Auth extends Public_Controller
       }
       else
       {
-        echo '<script>alert();</script>';
       }
     }
     $this->data['body'] = $this->load->view('auth/register',$this->data,TRUE);
-    $this->load->view('_layouts/boxed',$this->data);
+    $this->load->view('_layouts/fullwidth',$this->data);
   }
 
   public function logout()

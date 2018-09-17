@@ -10,6 +10,7 @@
   <?=link_tag('assets/css/bootstrap.min.css');?>
   <?//=link_tag('assets/css/bootstrap.litera.min.css');?>
   <?=link_tag('assets/css/fontawesome.min.css');?>
+  <?=link_tag('assets/css/style.css');?>
   <?=isset($css) ? result_in_array($css) : NULL;?>
 
   <!--[if lt IE 9]>
@@ -27,7 +28,13 @@
 
   <?=isset($navbar) ? result_in_array($navbar) : NULL;?>
 
-  <?=isset($body) ? result_in_array($body) : NULL;?>
+  <div class="container">
+    <div class="row">
+
+      <?=isset($body) ? result_in_array($body) : NULL;?>
+
+    </div>
+  </div>
 
   <?=isset($footer) ? result_in_array($footer) : NULL;?>
 

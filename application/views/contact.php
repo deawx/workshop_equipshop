@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid my-5">
   <div class="row">
     <div class="col-lg-6">
       <h2>Modern Business Features</h2>

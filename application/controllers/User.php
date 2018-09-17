@@ -13,7 +13,7 @@ class User extends Private_Controller
   {
     $this->data['user'] = $this->user_m->search_id($profile_id)->row_array();
     $this->data['body'] = $this->load->view('user/index',$this->data,TRUE);
-    $this->load->view('_layouts/boxed',$this->data);
+    $this->load->view('_layouts/fullwidth',$this->data);
   }
 
 }

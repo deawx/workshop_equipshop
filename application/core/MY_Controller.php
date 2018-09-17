@@ -7,10 +7,6 @@ class MY_Controller extends CI_Controller {
   public function __construct()
   {
     parent::__construct();
-
-    $this->data['navbar'] = $this->load->view('_partials/navbar',NULL,TRUE);
-    $this->data['footer'] = $this->load->view('_partials/footer',NULL,TRUE);
-
     $this->data['session'] = $this->session->userdata();
     // $this->data['message'] = array();
   }
@@ -22,11 +18,13 @@ class Public_Controller extends MY_Controller {
   public function __construct()
   {
     parent::__construct();
+    $this->data['navbar'] = $this->load->view('_partials/navbar',NULL,TRUE);
+    $this->data['footer'] = $this->load->view('_partials/footer',NULL,TRUE);
   }
 
 }
 
-class Private_Controller extends MY_Controller {
+class Private_Controller extends Public_Controller {
 
   public function __construct()
   {

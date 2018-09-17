@@ -3,7 +3,7 @@
   <p>Resize this responsive page to see the effect!</p>
 </div>
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
   <a class="navbar-brand" href="#">LOGO</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
@@ -13,7 +13,6 @@
       <li class="nav-item"> <a class="nav-link active" href="<?=site_url();?>">Home</a> </li>
       <li class="nav-item"> <a class="nav-link" href="<?=site_url('product');?>">Product</a> </li>
       <li class="nav-item"> <a class="nav-link" href="<?=site_url('howto');?>">How To</a> </li>
-      <li class="nav-item"> <a class="nav-link" href="<?=site_url('status');?>">Check Status</a> </li>
       <li class="nav-item"> <a class="nav-link" href="<?=site_url('contact');?>">Contact Us</a> </li>
     </ul>
   </div>

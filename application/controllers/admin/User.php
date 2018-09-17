@@ -5,17 +5,41 @@ class User extends Admin_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('User_model','user_m');
 	}
 
 	public function index()
 	{
-		$user = $this->user_m->search_where();
+		redirect('admin/user/users');
+	}
 
-		$this->data['user'] = $this->table->generate($user);
-		$this->data['body'] = $this->load->view('admin/user',$this->data,TRUE);
+	public function users($user_id=FALSE)
+	{
+		if ($user_id)
+		{
+			$this->data['user'] = array();
+			$this->data['body'] = $this->load->view('admin/user/form',$this->data,TRUE);
+		}
+		else
+		{
+			$this->data['users'] = array();
+			$this->data['body'] = $this->load->view('admin/user/index',$this->data,TRUE);
+		}
+		$this->load->view('_layouts/admin',$this->data);
+	}
 
-		$this->load->view('_layouts/boxed',$this->data);
+	public function admins($user_id=FALSE)
+	{
+		if ($user_id)
+		{
+			$this->data['user'] = array();
+			$this->data['body'] = $this->load->view('admin/user/form_admin',$this->data,TRUE);
+		}
+		else
+		{
+			$this->data['users'] = array();
+			$this->data['body'] = $this->load->view('admin/user/index_admin',$this->data,TRUE);
+		}
+		$this->load->view('_layouts/admin',$this->data);
 	}
 
 }
