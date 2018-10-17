@@ -8,7 +8,7 @@
   <title></title>
 
   <?=link_tag('assets/css/bootstrap.min.css');?>
-  <?//=link_tag('assets/css/bootstrap.litera.min.css');?>
+  <?=link_tag('assets/css/bootstrap.minty.min.css');?>
   <?=link_tag('assets/css/fontawesome.min.css');?>
   <?=link_tag('assets/css/style.css');?>
   <?=isset($css) ? result_in_array($css) : NULL;?>
@@ -21,7 +21,6 @@
   <?=script_tag('assets/js/jquery.min.js');?>
   <?=script_tag('assets/js/popper.min.js');?>
   <?=script_tag('assets/js/bootstrap.min.js');?>
-  <?=isset($js) ? result_in_array($js) : NULL;?>
 
 </head>
 <body>
@@ -37,6 +36,8 @@
   </div>
 
   <?=isset($footer) ? result_in_array($footer) : NULL;?>
+  
+  <?=isset($js) ? result_in_array($js) : NULL;?>
 
 <script type="text/javascript">
 $(function(){

@@ -8,7 +8,7 @@
   <title></title>
 
   <?=link_tag('assets/css/bootstrap.min.css');?>
-  <?//=link_tag('assets/css/bootstrap.litera.min.css');?>
+  <?=link_tag('assets/css/bootstrap.minty.min.css');?>
   <?=link_tag('assets/css/fontawesome.min.css');?>
   <?=link_tag('assets/css/style_admin.css');?>
   <?=isset($css) ? result_in_array($css) : NULL;?>
@@ -27,10 +27,9 @@
 <body>
 
   <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="<?=site_url();?>">Back to Home</a>
-    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="<?=site_url();?>">กลับหน้าหลัก</a>
     <ul class="navbar-nav px-3">
-      <li class="nav-item text-nowrap"> <a class="nav-link" href="#">Log out</a> </li>
+      <li class="nav-item text-nowrap"> <a class="nav-link" href="<?=site_url('auth/logout');?>">ออกจากระบบ</a> </li>
     </ul>
   </nav>
 
@@ -39,22 +38,26 @@
 
       <nav class="col-md-2 d-none d-md-block bg-light sidebar">
         <div class="sidebar-sticky">
+          <h6 class="sidebar-heading d-flex align-items-center px-3 mt-4 mb-1 text-muted"> หน้าปัดและการค้นหา </h6>
           <ul class="nav flex-column">
-            <li class="nav-item"> <a class="nav-link active" href="<?=site_url('admin/dashboard');?>"> <i class="fa fa-dashboards"></i> Dashboard </a> </li>
+            <li class="nav-item"> <a class="nav-link" href="<?=site_url('admin/dashboard');?>"> หน้าปัดข้อมูล </a> </li>
+            <li class="nav-item"> <a class="nav-link" href="<?=site_url('admin/scan');?>"> รายการค้นหา </a> </li>
           </ul>
-          <h6 class="sidebar-heading d-flex align-items-center px-3 mt-4 mb-1 text-muted"> <span>Buy & Sell</span> </h6>
+          <h6 class="sidebar-heading d-flex align-items-center px-3 mt-4 mb-1 text-muted"> ซื้อขายสินค้า </h6>
           <ul class="nav flex-column">
-            <li class="nav-item"> <a class="nav-link" href="<?=site_url('admin/order');?>"> <i class="fa fa-list"></i> Orders </a> </li>
-            <li class="nav-item"> <a class="nav-link" href="<?=site_url('admin/product');?>"> <i class="fa fa-info"></i> Products </a> </li>
+            <li class="nav-item"> <a class="nav-link" href="<?=site_url('admin/order');?>"> รายการคำสั่งซื้อ </a> </li>
+            <li class="nav-item"> <a class="nav-link" href="<?=site_url('admin/product');?>"> รายการสินค้า </a> </li>
           </ul>
-          <h6 class="sidebar-heading d-flex align-items-center px-3 mt-4 mb-1 text-muted"> <span>Permission</span> </h6>
+          <h6 class="sidebar-heading d-flex align-items-center px-3 mt-4 mb-1 text-muted"> สิทธิและการเข้าใช้งาน </h6>
           <ul class="nav flex-column">
-            <li class="nav-item"> <a class="nav-link" href="<?=site_url('admin/user/admins');?>"> <i class="fa fa-users"></i> Admins </a> </li>
-            <li class="nav-item"> <a class="nav-link" href="<?=site_url('admin/user/users');?>"> <i class="fa fa-users"></i> Users </a> </li>
+            <li class="nav-item"> <a class="nav-link" href="<?=site_url('admin/user/admins');?>"> ผู้ดูแลระบบ </a> </li>
+            <li class="nav-item"> <a class="nav-link" href="<?=site_url('admin/user/users');?>"> ผู้ใช้ทั่วไป </a> </li>
           </ul>
-          <h6 class="sidebar-heading d-flex align-items-center px-3 mt-4 mb-1 text-muted"> <span>History</span> </h6>
+          <h6 class="sidebar-heading d-flex align-items-center px-3 mt-4 mb-1 text-muted"> ตั้งค่าทั่วไป </h6>
           <ul class="nav flex-column">
-            <li class="nav-item"> <a class="nav-link" href="<?=site_url('admin/export');?>"> <i class="fa fa-list"></i> Exports </a> </li>
+            <li class="nav-item"> <a class="nav-link" href="<?=site_url('admin/setting/bank');?>"> ข้อมูลบัญชีธนาคาร </a> </li>
+            <li class="nav-item"> <a class="nav-link" href="<?=site_url('admin/setting/howto');?>"> ข้อมูลวิธีการสั่งซื้อสินค้า </a> </li>
+            <li class="nav-item"> <a class="nav-link" href="<?=site_url('admin/setting/contact');?>"> ข้อมูลการติดต่อเรา </a> </li>
           </ul>
         </div>
       </nav>
@@ -70,9 +73,5 @@
     </div>
   </div>
 
-  <script type="text/javascript">
-    $(function(){
-    });
-  </script>
 </body>
 </html>

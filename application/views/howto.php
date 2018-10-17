@@ -1,15 +1,16 @@
-<div class="container-fluid my-5">
-  <div class="row">
-    <div class="col-lg-3 mb-4">
-      <div class="list-group">
-        <a href="" class="list-group-item">How to #1</a>
-        <a href="" class="list-group-item">How to #2</a>
-        <a href="" class="list-group-item">How to #3</a>
-      </div>
+<div class="container my-5">
+
+    <div class="list-group list-group-flush">
+      <?php foreach ($howtos as $key => $value) { ?>
+        <div class="list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1 text-dark"><?=$value['title'];?></h5>
+            <button type="button" class="badge badge-primary m-1"><?=++$key;?></button>
+          </div>
+          <p class="mb-1"> <?=$value['description'];?> </p>
+          <img src="<?=base_url('uploads/howto/'.$value['picture']);?>" class="img-fluid d-block mx-auto">
+        </div>
+      <?php } ?>
     </div>
-    <div class="col-lg-9 mb-4">
-      <h2>Section Heading</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, et temporibus, facere perferendis veniam beatae non debitis, numquam blanditiis necessitatibus vel mollitia dolorum laudantium, voluptate dolores iure maxime ducimus fugit.</p>
-    </div>
-  </div>
+
 </div>

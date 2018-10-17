@@ -1,53 +1,51 @@
 <div class="row">
   <div class="col-md-12">
-    <?php if (isset($message['primary'])) : ?>
+    <?php if (isset($message['primary']) && $message['primary'] !== '') : ?>
       <div class="alert alert-primary">
         <a href="#" class="close" data-dismiss="alert">&times;</a>
-        <strong>Primary!</strong> <?php echo $message['primary']; ?>
+        <strong>!</strong> <?php echo $message['primary']; ?>
       </div>
-    <?php elseif (isset($message['secondary'])) : ?>
+    <?php endif; ?>
+    <?php if (isset($message['secondary']) && $message['secondary'] !== '') : ?>
       <div class="alert alert-secondary">
         <a href="#" class="close" data-dismiss="alert">&times;</a>
-        <strong>Secondary!</strong> <?php echo $message['secondary']; ?>
+        <strong>!</strong> <?php echo $message['secondary']; ?>
       </div>
-    <?php elseif (isset($message['success'])) : ?>
-      <script type="text/javascript">
-        alert("<?=$message['success'];?>");
-      </script>
+    <?php endif; ?>
+    <?php if (isset($message['success']) && $message['success'] !== '') : ?>
       <div class="alert alert-success">
         <a href="#" class="close" data-dismiss="alert">&times;</a>
-        <strong>Success!</strong> <?php echo $message['success']; ?>
+        <strong>!</strong> <?php echo $message['success']; ?>
       </div>
-    <?php elseif (isset($message['info'])) : ?>
+    <?php endif; ?>
+    <?php if (isset($message['info']) && $message['info'] !== '') : ?>
       <div class="alert alert-info">
         <a href="#" class="close" data-dismiss="alert">&times;</a>
-        <strong>Info!</strong> <?php echo $message['info']; ?>
+        <strong>!</strong> <?php echo $message['info']; ?>
       </div>
-    <?php elseif (isset($message['warning'])) : ?>
-      <script type="text/javascript">
-        alert("<?=$message['warning'];?>");
-      </script>
+    <?php endif; ?>
+    <?php if (isset($message['warning']) && $message['warning'] !== '') : ?>
       <div class="alert alert-warning">
         <a href="#" class="close" data-dismiss="alert">&times;</a>
-        <strong>Warning!</strong> <?php echo $message['warning']; ?>
+        <strong>!</strong> <?php echo $message['warning']; ?>
       </div>
-    <?php elseif (isset($message['danger'])) : ?>
-      <script type="text/javascript">
-        alert("<?=$message['danger'];?>");
-      </script>
+    <?php endif; ?>
+    <?php if (isset($message['danger']) && $message['danger'] !== '') : ?>
       <div class="alert alert-danger">
         <a href="#" class="close" data-dismiss="alert">&times;</a>
-        <strong>Error!</strong> <?php echo $message['danger']; ?>
+        <strong>!</strong> <?php echo $message['danger']; ?>
       </div>
-    <?php elseif (isset($message['light'])) : ?>
+    <?php endif; ?>
+    <?php if (isset($message['light']) && $message['light'] !== '') : ?>
       <div class="alert alert-light">
         <a href="#" class="close" data-dismiss="alert">&times;</a>
-        <strong>Light!</strong> <?php echo $message['light']; ?>
+        <strong>!</strong> <?php echo $message['light']; ?>
       </div>
-    <?php elseif (isset($message['dark'])) : ?>
+    <?php endif; ?>
+    <?php if (isset($message['dark']) && $message['dark'] !== '') : ?>
       <div class="alert alert-dark">
         <a href="#" class="close" data-dismiss="alert">&times;</a>
-        <strong>Dark!</strong> <?php echo $message['dark']; ?>
+        <strong>!</strong> <?php echo $message['dark']; ?>
       </div>
     <?php endif; ?>
   </div>

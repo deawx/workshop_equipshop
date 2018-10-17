@@ -1,37 +1,23 @@
-<div class="text-right">
-  <a href="<?=site_url('admin/user/users/1');?>" class="btn btn-primary btn-sm">Create New</a>
+<div class="d-flex justify-content-between align-items-center w-100">
+  <h4>รายการผู้ใช้งานระบบ</h4>
+  <a href="<?=site_url('admin/user/add_user');?>" class="">เพิ่มผู้ใช้งานระบบ</a>
 </div>
 <br>
-<div class="">
-  <div class="media text-muted py-3 border-top border-gray">
-    <img src="https://placehold.it/100x100">
+<?php foreach ($users as $_us => $us) { ?>
+  <div class="media text-muted border-top border-gray">
     <div class="media-body p-3 mb-0 small lh-125">
       <div class="d-flex justify-content-between align-items-center w-100">
-        <strong class="text-gray-dark">Full Name</strong>
-        <a href="#">Edit</a>
+        <strong class="lead text-gray-dark">ชื่อ-นามสกุล : <u><?=$us['firstname'].' '.$us['lastname'];?></u></strong>
+        <span>
+          <a href="<?=site_url('admin/user/users/'.$us['id']);?>" class="">แก้ไข</a> |
+          <a href="<?=site_url('admin/user/users?method=delete&id='.$us['id']);?>" class="" onclick="return confirm('ยืนยันการลบข้อมูล?');">ลบ</a>
+        </span>
       </div>
-      <span class="d-block">@username</span>
+      <span class="d-block">
+        ชื่อผู้ใช้ : <u><?=$us['username'];?></u> |
+        รหัสผ่าน : <u><?=$us['password'];?></u> |
+        วันที่บันทึก : <u><?=$us['created'];?></u>
+      </span>
     </div>
   </div>
-  <div class="media text-muted py-3 border-top border-gray">
-    <img src="https://placehold.it/100x100">
-    <div class="media-body p-3 mb-0 small lh-125">
-      <div class="d-flex justify-content-between align-items-center w-100">
-        <strong class="text-gray-dark">Full Name</strong>
-        <a href="#">Edit</a>
-      </div>
-      <span class="d-block">@username</span>
-    </div>
-  </div>
-  <div class="media text-muted py-3 border-top border-gray">
-    <img src="https://placehold.it/100x100">
-    <div class="media-body p-3 mb-0 small lh-125">
-      <div class="d-flex justify-content-between align-items-center w-100">
-        <strong class="text-gray-dark">Full Name</strong>
-        <a href="#">Edit</a>
-      </div>
-      <span class="d-block">@username</span>
-    </div>
-  </div>
-
-</div>
+<?php } ?>

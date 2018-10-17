@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <p>Copyright &copy; Your Website <?=date('Y');?></p>
+        <p>ลิขสิทธิ์ถูกต้อง &copy; เว็บไซต์ของคุณ <?=date('Y');?></p>
       </div>
     </div>
   </div>

@@ -8,7 +8,9 @@ class MY_Controller extends CI_Controller {
   {
     parent::__construct();
     $this->data['session'] = $this->session->userdata();
-    // $this->data['message'] = array();
+
+    // $this->data['css'] = array(link_tag('assets/css/datepicker.min.css'));
+    // $this->data['js'] = array(script_tag('assets/js/datepicker.min.js'),script_tag('assets/js/datepicker.th.min.js'));
   }
 
 }
@@ -18,7 +20,11 @@ class Public_Controller extends MY_Controller {
   public function __construct()
   {
     parent::__construct();
-    $this->data['navbar'] = $this->load->view('_partials/navbar',NULL,TRUE);
+    $this->load->library('cart');
+    $this->data['cart'] = $this->cart->contents();
+
+    $this->data['js'] = array(script_tag('assets/js/common.js'));
+    $this->data['navbar'] = $this->load->view('_partials/navbar',$this->data,TRUE);
     $this->data['footer'] = $this->load->view('_partials/footer',NULL,TRUE);
   }
 
@@ -29,20 +35,25 @@ class Private_Controller extends Public_Controller {
   public function __construct()
   {
     parent::__construct();
+    if ( ! $this->data['session']['is_login'])
+    {
+      redirect('auth/logout');
+    }
+    $this->data['navbar'] = $this->load->view('_partials/navbar_blank',$this->data,TRUE);
   }
 
 }
 
-class Admin_Controller extends MY_Controller {
+class Admin_Controller extends Private_Controller {
 
   public function __construct()
   {
     parent::__construct();
-    $table_config = array(
-      'table_open' => '<table class="table table-hover">',
-      'thead_open' => '<thead class="thead-light">'
-    );
-    $this->load->library('table',$table_config);
+    if ( ! $this->data['session']['is_admin'])
+    {
+      redirect('auth/logout');
+    }
+    $this->load->library('pagination');
   }
 
 }
