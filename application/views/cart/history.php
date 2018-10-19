@@ -12,7 +12,7 @@
             <th class="text-center" style="width:20%;">วันที่</th>
             <th class="">ผู้รับสินค้า</th>
             <th class="text-right">ราคาสุทธิ</th>
-            <th class="text-center" style="width:10%;">สถานะ</th>
+            <th class="text-center" style="width:15%;">สถานะ</th>
           </tr>
         </thead>
         <tbody>
@@ -23,7 +23,7 @@
               <td><?=$h['fullname'];?> (โทรศัพท์ : <?=$h['phone'];?>)</td>
               <td class="text-right"><?=$this->cart->format_number($h['total_price']);?>฿</td>
               <td class="text-right">
-                <a href="<?=site_url('cart/history/'.$h['id']);?>" class="btn btn-outline-primary btn-sm">
+                <a href="<?=site_url('cart/receipt/'.$h['id']);?>" class="btn btn-primary btn-sm" target="_blank">
                   <?=$h['status'];?>
                   <?//=( ! isset($h['transfer_slip']))
                     // ? 'รอการชำระเงิน'
@@ -35,6 +35,9 @@
                     //       ? 'ระหว่างการจัดส่ง'
                     //       : 'สำเร็จ')));?>
                 </a>
+                <!-- <a href="<?=site_url('cart/receipt/'.$h['id']);?>" class="btn btn-primary btn-sm" target="_blank">
+                  ใบเสร็จ
+                </a> -->
               </td>
             </tr>
           <?php } ?>

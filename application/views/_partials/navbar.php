@@ -5,9 +5,9 @@
     <li data-target="#carousel" data-slide-to="2"></li>
   </ol>
   <div class="carousel-inner" role="listbox">
-    <div class="carousel-item active"> <img src="<?=base_url('assets/images/banner_1.png');?>" class="d-block w-100"> </div>
-    <div class="carousel-item"> <img src="<?=base_url('assets/images/banner_2.png');?>" class="d-block w-100"> </div>
-    <div class="carousel-item"> <img src="<?=base_url('assets/images/banner_3.png');?>" class="d-block w-100"> </div>
+    <div class="carousel-item active"> <img src="<?=base_url('assets/images/banner_1.jpg');?>" class="d-block w-100"> </div>
+    <div class="carousel-item"> <img src="<?=base_url('assets/images/banner_2.jpg');?>" class="d-block w-100"> </div>
+    <div class="carousel-item"> <img src="<?=base_url('assets/images/banner_3.jpg');?>" class="d-block w-100"> </div>
   </div>
   <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

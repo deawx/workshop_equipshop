@@ -57,6 +57,7 @@ class Welcome extends Public_Controller {
 		$pagination = $this->config->item('pagination');
 		$tracking = $this->db
 			->where('tracking_number IS NOT NULL')
+			->where('tracking_number <>','')
 			->where('status >','1')
 			->limit('25')
 			->offset(($pagination['query_string_segment']) ? $pagination['query_string_segment'] : 0)

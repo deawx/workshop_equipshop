@@ -15,10 +15,28 @@
       </div>
       <span class="d-block"><?=$pd['detail'];?></span>
     </div>
-    <?php if ($pd['file1'] !== '') { ?>
+    <?php if ($pd['file1'] != '') { ?>
       <figure class="figure">
         <img src="<?=base_url('uploads/product/'.$pd['file1']);?>" class="figure-img img-fluid rounded ml-1" style="width:100px;height:100px;">
         <figcaption class="figure-caption text-center"><a href="<?=site_url('admin/product?method=delete&field=file1&file='.$pd['file1']);?>" class="" onclick="return confirm('ยืนยันการลบรูปภาพนี้?');">ลบ</a></figcaption>
+      </figure>
+    <?php } ?>
+    <?php if ($pd['file2'] != '') { ?>
+      <figure class="figure">
+        <img src="<?=base_url('uploads/product/'.$pd['file2']);?>" class="figure-img img-fluid rounded ml-1" style="width:100px;height:100px;">
+        <figcaption class="figure-caption text-center"><a href="<?=site_url('admin/product?method=delete&field=file2&file='.$pd['file2']);?>" class="" onclick="return confirm('ยืนยันการลบรูปภาพนี้?');">ลบ</a></figcaption>
+      </figure>
+    <?php } ?>
+    <?php if ($pd['file3'] != '') { ?>
+      <figure class="figure">
+        <img src="<?=base_url('uploads/product/'.$pd['file3']);?>" class="figure-img img-fluid rounded ml-1" style="width:100px;height:100px;">
+        <figcaption class="figure-caption text-center"><a href="<?=site_url('admin/product?method=delete&field=file3&file='.$pd['file3']);?>" class="" onclick="return confirm('ยืนยันการลบรูปภาพนี้?');">ลบ</a></figcaption>
+      </figure>
+    <?php } ?>
+    <?php if ($pd['file4'] != '') { ?>
+      <figure class="figure">
+        <img src="<?=base_url('uploads/product/'.$pd['file4']);?>" class="figure-img img-fluid rounded ml-1" style="width:100px;height:100px;">
+        <figcaption class="figure-caption text-center"><a href="<?=site_url('admin/product?method=delete&field=file4&file='.$pd['file4']);?>" class="" onclick="return confirm('ยืนยันการลบรูปภาพนี้?');">ลบ</a></figcaption>
       </figure>
     <?php } ?>
   </div>

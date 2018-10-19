@@ -26,7 +26,7 @@
         <div class="col-md-8"> <input type="text" class="form-control-plaintext" name="" value="<?=isset($order['transfer_slip']) ? 'ชำระเงินแล้ว' : 'รอชำระเงิน';?>" readonly> </div>
       </div>
       <div class="form-group row">
-        <label for="" class="col-form-label col-md-4 text-right">สถานะการจัดส่ง</label>
+        <label for="" class="col-form-label col-md-4 text-right">หมายเลขแทรคกิ้ง</label>
         <div class="col-md-8"> <input type="text" class="form-control" name="tracking_number" value="<?=set_value('tracking_number',$order['tracking_number']);?>" maxlength="20"> </div>
       </div>
       <div class="form-group row">

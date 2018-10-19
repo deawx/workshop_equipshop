@@ -10,10 +10,31 @@
       <input type="hidden" name="id" value="<?=$product['id'];?>">
       <?php
     }
-    if ( ! isset($product['file1']) OR $product['file1'] === '')
+    if ( ! isset($product['file1']) OR $product['file1'] == '')
     { ?>
       <div class="form-group"> <label for="">ไฟล์รูปภาพ</label>
         <div class="custom-file"> <input type="file" name="file1" class="form-control-file"> </div>
+      </div>
+      <?php
+    }
+    if ( ! isset($product['file2']) OR $product['file2'] == '')
+    { ?>
+      <div class="form-group"> <label for="">ไฟล์รูปภาพ</label>
+        <div class="custom-file"> <input type="file" name="file2" class="form-control-file"> </div>
+      </div>
+      <?php
+    }
+    if ( ! isset($product['file3']) OR $product['file3'] == '')
+    { ?>
+      <div class="form-group"> <label for="">ไฟล์รูปภาพ</label>
+        <div class="custom-file"> <input type="file" name="file3" class="form-control-file"> </div>
+      </div>
+      <?php
+    }
+    if ( ! isset($product['file4']) OR $product['file4'] == '')
+    { ?>
+      <div class="form-group"> <label for="">ไฟล์รูปภาพ</label>
+        <div class="custom-file"> <input type="file" name="file4" class="form-control-file"> </div>
       </div>
       <?php
     } ?>

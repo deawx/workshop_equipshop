@@ -33,4 +33,9 @@ class Order_model extends MY_Model {
     return $order;
   }
 
+  public function get_bank()
+  {
+    return $this->db->get('tb_bank')->result_array();
+  }
+
 }

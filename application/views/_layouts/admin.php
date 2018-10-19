@@ -40,11 +40,11 @@
         <div class="sidebar-sticky">
           <h6 class="sidebar-heading d-flex align-items-center px-3 mt-4 mb-1 text-muted"> หน้าปัดและการค้นหา </h6>
           <ul class="nav flex-column">
-            <li class="nav-item"> <a class="nav-link" href="<?=site_url('admin/dashboard');?>"> หน้าปัดข้อมูล </a> </li>
             <li class="nav-item"> <a class="nav-link" href="<?=site_url('admin/scan');?>"> รายการค้นหา </a> </li>
           </ul>
           <h6 class="sidebar-heading d-flex align-items-center px-3 mt-4 mb-1 text-muted"> ซื้อขายสินค้า </h6>
           <ul class="nav flex-column">
+            <li class="nav-item"> <a class="nav-link" href="<?=site_url('admin/dashboard');?>"> สรุปรายการสั่งซื้อ </a> </li>
             <li class="nav-item"> <a class="nav-link" href="<?=site_url('admin/order');?>"> รายการคำสั่งซื้อ </a> </li>
             <li class="nav-item"> <a class="nav-link" href="<?=site_url('admin/product');?>"> รายการสินค้า </a> </li>
           </ul>

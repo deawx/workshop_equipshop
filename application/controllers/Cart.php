@@ -167,6 +167,7 @@ class Cart extends Private_Controller {
 			$this->data['message']['warning'] = validation_errors();
 		}
 
+		$this->data['banks'] = $this->order_m->get_bank();
 		$this->data['body'] = $this->load->view('cart/cart_address',$this->data,TRUE);
 		$this->load->view('_layouts/boxed',$this->data);
 	}
@@ -215,6 +216,12 @@ class Cart extends Private_Controller {
 
 		$this->data['body'] = $this->load->view('cart/confirm',$this->data,TRUE);
 		$this->load->view('_layouts/boxed',$this->data);
+	}
+
+	public function receipt($order_id)
+	{
+		$this->data['order'] = $this->order_m->get_order($order_id);
+		$this->load->view('cart/receipt',$this->data);
 	}
 
 	protected function cart_insert($product_id)

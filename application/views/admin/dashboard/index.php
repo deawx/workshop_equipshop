@@ -1,5 +1,15 @@
+<link rel="stylesheet" href="<?=base_url('assets/css/datepicker.min.css');?>">
+<script src="<?=base_url('assets/js/datepicker.min.js');?>" charset="utf-8"></script>
+<script src="<?=base_url('assets/js/datepicker.th.min.js');?>" charset="utf-8"></script>
+
 <div class="d-flex justify-content-between align-items-center w-100">
-  <h4>รายการหน้าปัดข้อมูล</h4>
+  <h4>สรุปรายการสั่งซื้อ</h4>
+  <?=form_open('',array('class'=>'form-inline needs-validation','novalidate'=>TRUE,'method'=>'get'));?>
+  <label for="" class="col-form-label mr-2">ค้นหาตามช่วงวันที่</label>
+  <input type="text" name="start" class="form-control datepicker mr-2" value="<?=$this->input->get('start');?>" placeholder="วันที่เริ่ม">
+  <input type="text" name="end" class="form-control datepicker mr-2" value="<?=$this->input->get('end');?>" placeholder="วันที่สิ้นสุด">
+  <button type="submit" class="btn btn-secondary">ค้นหา</button>
+  <?=form_close();?>
 </div>
 <hr>
 <div class="row">
@@ -46,3 +56,12 @@
     </table>
   </div>
 </div>
+
+<script type="text/javascript">
+$(function () {
+  $('.datepicker').datepicker({
+    format: 'yyyy-mm-dd',
+    language: 'th'
+  });
+});
+</script>

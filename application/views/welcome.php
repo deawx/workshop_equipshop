@@ -55,13 +55,13 @@
             </div>
           <?php } else { ?>
             <form class="needs-validation" action="" method="get" novalidate>
-              <div class="form-group row"> <label for="" class="col-from-label col-md-4 text-right">รหัสคิวอาร์โค้ด ที่นี่</label>
+              <div class="form-group row"> <label for="" class="col-form-label col-md-4 text-right">รหัสคิวอาร์โค้ด ที่นี่</label>
                 <div class="col-md-8"> <input type="text" class="form-control" name="qr_code" value="<?=$this->input->get('qr_code');?>" required> </div>
               </div>
-              <div class="form-group row"> <label for="" class="col-from-label col-md-4 text-right">ยืนยันเลขบัตรประชาชน</label>
+              <div class="form-group row"> <label for="" class="col-form-label col-md-4 text-right">ยืนยันเลขบัตรประชาชน</label>
                 <div class="col-md-8"> <input type="text" class="form-control" name="id_card" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" maxlength="13" required> </div>
               </div>
-              <div class="form-group row"> <label for="" class="col-from-label col-md-4 text-right"></label>
+              <div class="form-group row"> <label for="" class="col-form-label col-md-4 text-right"></label>
                 <div class="col-md-8"> <button class="btn btn-success btn-block" type="submit">ค้นหาข้อมูล</button> </div>
               </div>
             </form>

@@ -2,19 +2,6 @@
   <div class="row">
     <div class="col-md-8">
 
-      <h4 class="">ข้อมูลบัญชีธนาคาร</h4>
-      <hr>
-      <ul class="list-unstyled">
-        <li>
-          <img src="<?=base_url('assets/images/bank_scb.jpg');?>" class="" width="60" height="60">
-          <img src="<?=base_url('assets/images/bank_scb_promptpay.png');?>" class="" width="240" height="60">
-        </li>
-        <li> ชื่อบัญชี : วรรณพร อยู่หนุน</li>
-        <li> หมายเลขบัญชี : 4091002093</li>
-        <li> หมายเลขพร้อมเพย์ : 0972476698</li>
-      </ul>
-      <br>
-
       <form class="needs-validation" action="" method="post" novalidate>
         <h4 class="mb-3">ข้อมูลการจัดส่ง</h4>
         <hr>
@@ -37,6 +24,21 @@
         <a href="<?=site_url('cart/cart_detail');?>" class="btn btn-light text-dark">ย้อนกลับ</a>
         <button class="btn btn-success float-right" type="submit" onclick="return confirm('ยืนยันการบันทึกข้อมูล?');">บันทึกคำสั่งซื้อ</button>
       </form>
+
+      <br>
+      <h4 class="">ข้อมูลบัญชีธนาคาร</h4>
+      <hr>
+      <?php foreach ($banks as $_k => $v) { ?>
+        <div class="media">
+          <div class="media-body">
+            <h5 class="mt-0 mb-1"><?=$v['bank'];?></h5>
+            ชื่อบัญชี : <?=$v['name'];?> <br>
+            หมายเลขบัญชี : <?=$v['account'];?>
+          </div>
+          <img src="<?=base_url('uploads/bank/'.$v['picture']);?>" class="d-flex ml-3 img-fluid" style="height:100px;">
+        </div>
+        <hr>
+      <?php } ?>
 
     </div>
     <div class="col-md-4">
