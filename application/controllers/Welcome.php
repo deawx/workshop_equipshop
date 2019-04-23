@@ -11,32 +11,42 @@ class Welcome extends Public_Controller {
 	{
 		$qr_code = $this->input->get('qr_code');
 		$id_card = $this->input->get('id_card');
-		$this->form_validation->set_data(array('qr_code'=>$qr_code,'id_card'=>$id_card));
-		$this->form_validation->set_rules('qr_code','','required');
-		$this->form_validation->set_rules('id_card','','required|integer|exact_length[13]');
-		if ($this->form_validation->run() === TRUE)
+		$mobile_number = $this->input->get('mobile_number');
+		$this->form_validation->set_data(array(
+			'qr_code' => $qr_code,
+			'id_card' => $id_card,
+			'mobile_number' => $mobile_number
+		));
+		if ($this->input->get())
 		{
-			$exist_qr = $this->db
-				->where('qr_code',$qr_code)
-				->get('tb_order_detail_data');
-			if ($exist_qr->num_rows())
+			$this->form_validation->set_rules('qr_code','คิวอาร์โค้ด','required');
+			$this->form_validation->set_rules('id_card','หมายเลขบัตรประชาชน','required|numeric|exact_length[13]');
+			$this->form_validation->set_rules('mobile_number','หมายเลขโทรศัพท์มือถือ','required|numeric|exact_length[10]');
+			if ($this->form_validation->run() == TRUE)
 			{
-				$this->db->insert('tb_scan',array(
-					'qr_code' => $qr_code,
-					'id_card' => $id_card,
-					'datetime' => date('Y-m-d H:i:s')
-				));
-				if ($this->db->affected_rows())
+				$exist_qr = $this->db
+					->where('qr_code',$qr_code)
+					->get('tb_order_detail_data');
+				if ($exist_qr->num_rows())
 				{
-					$this->data['checkin_success'] = $this->db
-						->where('qr_code',$qr_code)
-						->get('tb_order_detail_data')
-						->row_array();
+					$this->db->insert('tb_scan',array(
+						'qr_code' => $qr_code,
+						'id_card' => $id_card,
+						'mobile_number' => $mobile_number,
+						'datetime' => date('Y-m-d H:i:s')
+					));
+					if ($this->db->affected_rows())
+					{
+						$this->data['checkin_success'] = $this->db
+							->where('qr_code',$qr_code)
+							->get('tb_order_detail_data')
+							->row_array();
+					}
 				}
-			}
-			else
-			{
-				$this->data['message']['warning'] = 'ไม่พบข้อมูลรหัสคิวอาร์โค้ด';
+				else
+				{
+					$this->data['message']['warning'] = 'ไม่พบข้อมูลรหัสคิวอาร์โค้ด';
+				}
 			}
 		}
 
@@ -86,6 +96,33 @@ class Welcome extends Public_Controller {
 		$this->data['contact'] = $this->db->get('tb_contact')->row_array();
 		$this->data['body'] = $this->load->view('contact',$this->data,TRUE);
 		$this->load->view('_layouts/fullwidth',$this->data);
+	}
+
+	public function valid_idcard($id_card)
+	{
+		if ($id_card)
+		{
+			$sum = 0;
+			for ($i=0; $i<12; $i++)
+			{
+				//Sum of each digit
+				$digitValue = substr($id_card, $i, 1);
+				$digitId = substr($id_card, $i, 1);
+				$sum += (int)($digitValue) * (int)($digitId);
+			}
+
+			$digit13 = substr($id_card, 12, 1);
+			if ( (11-($sum%11)) % 10 === (int)($digit13))
+			{
+				return TRUE;
+			}
+			else
+			{
+				$this->form_validation->set_message('valid_idcard', 'ข้อมูล หมายเลขบัตรประชาชน ไม่ตรงตามมาตรฐานที่กำหนด');
+				return FALSE;
+			}
+
+		}
 	}
 
 }

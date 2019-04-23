@@ -7,14 +7,16 @@
     <div class="col-md-8">
       <div id="carouselproducts" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active"> <img src="<?=base_url('uploads/product/'.$product['file1']);?>" class="d-block w-100" style="height:400px;"> </div>
-          <?php if ($product['file2'] != '') { ?>
+          <?php if (isset($product['file1']) && $product['file1'] != '') { ?>
+            <div class="carousel-item active"> <img src="<?=base_url('uploads/product/'.$product['file1']);?>" class="d-block w-100" style="height:400px;"> </div>
+          <?php } ?>
+          <?php if (isset($product['file2']) && $product['file2'] != '') { ?>
             <div class="carousel-item"> <img src="<?=base_url('uploads/product/'.$product['file2']);?>" class="d-block w-100" style="height:400px;"> </div>
           <?php } ?>
-          <?php if ($product['file3'] != '') { ?>
+          <?php if (isset($product['file3']) && $product['file3'] != '') { ?>
             <div class="carousel-item"> <img src="<?=base_url('uploads/product/'.$product['file3']);?>" class="d-block w-100" style="height:400px;"> </div>
           <?php } ?>
-          <?php if ($product['file4'] != '') { ?>
+          <?php if (isset($product['file4']) && $product['file4'] != '') { ?>
             <div class="carousel-item"> <img src="<?=base_url('uploads/product/'.$product['file4']);?>" class="d-block w-100" style="height:400px;"> </div>
           <?php } ?>
         </div>

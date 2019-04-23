@@ -15,6 +15,14 @@
           <input type="text" class="form-control" name="phone" value="<?=set_value('phone');?>" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" maxlength="10" required>
           <small class="form-text text-warning"><?=form_error('phone');?></small>
         </div>
+        <div class="form-group row">
+          <label for="" class="col-form-label col-md-12">ประวัติที่อยู่จัดส่ง</label>
+          <ul class="" style="list-style-type:square;">
+            <?php foreach ($addresses as $key => $value) { ?>
+              <li> <?=$value['address'];?> </li>
+            <?php } ?>
+          </ul>
+        </div>
         <div class="form-group">
           <label for="">ที่อยู่จัดส่ง</label>
           <textarea name="address" class="form-control" rows="3" required><?=set_value('address');?></textarea>

@@ -73,7 +73,7 @@ class Order extends Admin_Controller {
 			$order = $order->result_array();
 			$detail = array_column($order,'id');
 			$qrcode = $this->db
-				->select('qr_code')
+				->select('qr_code,firstname,lastname')
 				->where_in('order_detail_id',$detail)
 				->get('tb_order_detail_data')
 				->result_array();

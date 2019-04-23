@@ -167,6 +167,7 @@ class Cart extends Private_Controller {
 			$this->data['message']['warning'] = validation_errors();
 		}
 
+		$this->data['addresses'] = $this->db->select('address')->where('user_id',$this->user_id)->get('tb_order')->result_array();
 		$this->data['banks'] = $this->order_m->get_bank();
 		$this->data['body'] = $this->load->view('cart/cart_address',$this->data,TRUE);
 		$this->load->view('_layouts/boxed',$this->data);

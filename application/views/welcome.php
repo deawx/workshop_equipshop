@@ -13,6 +13,7 @@
             <p>ชื่อ-นามสกุล : <?=$checkin_success['firstname'].' '.$checkin_success['lastname'];?></p>
             <p>หมายเลขบัตรประชาชน : <?=$checkin_success['id_card'];?></p>
             <p>เบอร์โทรศัพท์ : <?=$checkin_success['phone'];?></p>
+            <p>เบอร์โทรศัพท์สำรอง : <?=$checkin_success['reserve_name'];?> (<?=$checkin_success['reserve_phone'];?>)</p>
             <p>
               <div class="row">
                 <div class="col-md-4"> เพศ : <?=$checkin_success['gender'];?> </div>
@@ -54,12 +55,19 @@
               </p>
             </div>
           <?php } else { ?>
+            <div class="row">
+              <div class="col-md-4"> </div>
+              <div class="col-md-8 text-warning"> <?=validation_errors();?> </div>
+            </div>
             <form class="needs-validation" action="" method="get" novalidate>
               <div class="form-group row"> <label for="" class="col-form-label col-md-4 text-right">รหัสคิวอาร์โค้ด ที่นี่</label>
                 <div class="col-md-8"> <input type="text" class="form-control" name="qr_code" value="<?=$this->input->get('qr_code');?>" required> </div>
               </div>
               <div class="form-group row"> <label for="" class="col-form-label col-md-4 text-right">ยืนยันเลขบัตรประชาชน</label>
-                <div class="col-md-8"> <input type="text" class="form-control" name="id_card" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" maxlength="13" required> </div>
+                <div class="col-md-8"> <input type="text" class="form-control" name="id_card" value="<?=$this->input->get('id_card');?>" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" maxlength="13" required> </div>
+              </div>
+              <div class="form-group row"> <label for="" class="col-form-label col-md-4 text-right">ยืนยันหมายเลขโทรศัพท์มือถือ</label>
+                <div class="col-md-8"> <input type="text" class="form-control" name="mobile_number" value="<?=$this->input->get('mobile_number');?>" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" maxlength="10" required> </div>
               </div>
               <div class="form-group row"> <label for="" class="col-form-label col-md-4 text-right"></label>
                 <div class="col-md-8"> <button class="btn btn-success btn-block" type="submit">ค้นหาข้อมูล</button> </div>
@@ -123,24 +131,26 @@
           </div>
         <?php } ?>
         <br>
-        <div class="card">
-          <div class="card-header"> หมายเลขติดตามสินค้า </div>
-          <div class="card-body">
-            <div class="list-group">
-              <div class="d-flex w-100 justify-content-between border-bottom mb-1">
-                <p class="text-info">ชื่อผู้รับ</p>
-                <p class="text-info">หมายเลขพัสดุ</p>
-              </div>
-              <?php foreach ($tracking as $_tr => $tr) { ?>
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1"><?=$tr['fullname'];?></h5>
-                  <small class="text-muted"><?=$tr['tracking_number'];?></small>
+        <?php if ( ! isset($checkin_success)) { ?>
+          <div class="card">
+            <div class="card-header"> หมายเลขติดตามสินค้า </div>
+            <div class="card-body">
+              <div class="list-group">
+                <div class="d-flex w-100 justify-content-between border-bottom mb-1">
+                  <p class="text-info">ชื่อผู้รับ</p>
+                  <p class="text-info">หมายเลขพัสดุ</p>
                 </div>
-              <?php } ?>
+                <?php foreach ($tracking as $_tr => $tr) { ?>
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1"><?=$tr['fullname'];?></h5>
+                    <small class="text-muted"><?=$tr['tracking_number'];?></small>
+                  </div>
+                <?php } ?>
+              </div>
+              <a href="<?=site_url('welcome/tracking');?>" class="btn btn-link btn-sm float-right">ดูทั้งหมด</a>
             </div>
-            <a href="<?=site_url('welcome/tracking');?>" class="btn btn-link btn-sm float-right">ดูทั้งหมด</a>
           </div>
-        </div>
+        <?php } ?>
       </div>
 
     </div>

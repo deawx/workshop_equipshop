@@ -1,4 +1,6 @@
-<footer class="footer jumbotron mb-0">
+<?php if ( ! isset($checkin_success)) { ?>
+
+<footer class="footer jumbotron">
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
@@ -7,3 +9,5 @@
     </div>
   </div>
 </footer>
+
+<?php } ?>

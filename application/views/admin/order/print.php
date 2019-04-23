@@ -28,7 +28,7 @@
         <div class="col-md-3 col-sm-4">
           <div class="">
             <img class="border p-1 w-100 h-100" src="<?=base_url();?>phpqrcode/gen_qrcode.php?w=<?=site_url('welcome?qr_code=').$qr['qr_code'];?>" alt="<?=$qr['qr_code'];?>">
-            <small class="text-muted text-center"><?=$qr['qr_code'];?></small>
+            <small class="text-muted text-center"><?=$qr['qr_code'].' ('.$qr['firstname'].' '.$qr['lastname'].')';?></small>
           </div>
         </div>
       <?php } ?>

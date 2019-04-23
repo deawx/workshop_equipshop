@@ -93,6 +93,18 @@
                           </select>
                         </div>
                       </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group"> <label for="">หมายเลขโทรศัพท์ผู้เกี่ยวข้อง</label>
+                            <input type="text" class="form-control" name="<?=$i.$ii;?>[reserve_phone]" value="<?=set_value($i.$ii.'[reserve_phone]');?>" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" maxlength="10" required>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group"> <label for="">เกี่ยวข้องเป็น</label>
+                            <input type="text" class="form-control" name="<?=$i.$ii;?>[reserve_name]" value="<?=set_value($i.$ii.'[reserve_name]');?>" required>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     <div class="form-group">
                       <div class="row">
@@ -110,7 +122,12 @@
                           <input type="text" class="form-control" name="<?=$i.$ii;?>[nationality]" value="<?=set_value($i.$ii.'[nationality]');?>" required>
                         </div>
                         <div class="col-md-6"> <label for="">ศาสนา</label>
-                          <input type="text" class="form-control" name="<?=$i.$ii;?>[religion]" value="<?=set_value($i.$ii.'[religion]');?>" required>
+                          <select class="form-control" name="<?=$i.$ii;?>[religion]" required>
+                            <option value="" selected disabled hidden>เลือกรายการ</option>
+                            <?php foreach (array('พุทธ','คริสต์','อิสลาม','ฮินดู','ซิกข์','ยูดาห์','เชน','บาไฮ','อื่นๆ') as $_r) { ?>
+                              <option value="<?=$_r;?>" <?=set_select($i.$ii.'[religion]',$_r,($i.$ii.'[religion]'===$_r));?>><?=$_r;?></option>
+                            <?php } ?>
+                          </select>
                         </div>
                       </div>
                     </div>
@@ -146,6 +163,7 @@
         <p>* กรอกข้อมูลให้ครบทุกช่อง</p>
         <p>* ข้อมูลไม่สามารถเปลี่ยนแปลงได้</p>
         <p>* รองรับการอัพโหลดรูปภาพชนิด *.jpeg, *.jpg, *.png</p>
+        <p>* คู่มือการหาละติจุดและลองติจุด <a href="<?=base_url('uploads/how_to_get_ltt.pdf');?>" target="_blank">คลิกที่นี่</a></p>
       </div>
 
     </div>
